@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 
 namespace LoginPromptServer.Models
@@ -12,6 +13,8 @@ namespace LoginPromptServer.Models
         }
 
         public DbSet<LoginPrompt> LoginPrompts { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<LoginPromptView> LoginPropmtViews { get; set; }
 
         private void Initialize()
         {
@@ -34,6 +37,21 @@ namespace LoginPromptServer.Models
             {
                 this.Add(p);
             }
+
+            var users = new User[]
+            {
+                new User{ UserName = "User1"},
+                new User{UserName = "User2"},
+                new User{ UserName = "User3"},
+
+            };
+
+            foreach (var u in users)
+            {
+                this.Add(u);
+            }
+
+            
 
             this.SaveChanges();
         }
