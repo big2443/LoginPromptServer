@@ -7,5 +7,8 @@ namespace LoginPromptServer.Models
         public string ImageUrl { get; set; }
 
         public string Caption { get; set; }
+
+        // seconds
+        public double QuietPeriod { get; set; }
     }
 }

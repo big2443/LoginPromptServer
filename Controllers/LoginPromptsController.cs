@@ -51,7 +51,7 @@ namespace LoginPromptServer.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
-            [Bind("ImageUrl,Caption")] LoginPrompt item)
+            [Bind("ImageUrl,Caption,QuietPeriod")] LoginPrompt item)
         {
             try
             {
@@ -101,7 +101,7 @@ namespace LoginPromptServer.Controllers
             if (await TryUpdateModelAsync<LoginPrompt>(
                 itemToUpdate,
                 "",
-                x => x.ImageUrl, x => x.Caption))
+                x => x.ImageUrl, x => x.Caption, x=> x.QuietPeriod))
             {
                 try
                 {
